@@ -2,5 +2,6 @@
   "name": "Socketio Node Cluster Polling Fail",
   "description": "Proof of Concept to show Heroku cannot handle sticky worker sessions with Node Cluster",
   "repository": "https://github.com/paustint/socketio-node-cluster-test",
-  "keywords": ["heroku", "node", "node cluster", "socketio", "socket.io", "sticky", "sticky session"]
+  "keywords": ["heroku", "node", "node cluster", "socketio", "socket.io", "sticky", "sticky session"],
+  "addons": ["papertrail"]
 }
