@@ -83,7 +83,7 @@ if (cluster.isMaster) {
 } else {
   const app = express();
 
-  const Expserver = app.listen(3002, 'localhost');
+  const Expserver = app.listen(0, 'localhost');
 
   // Ensuring we only use HTTP to simulate a browser/proxy server without websocket support
   const io = socketio(Expserver, { transports: ['polling'] });

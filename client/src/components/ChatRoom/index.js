@@ -45,9 +45,8 @@ class Chatroom extends React.Component {
       const clientIP = JSON.parse(body).ip;
 
       // Ensuring we only use HTTP to simulate a browser/proxy server without websocket support
-      const socket = io('localhost:3001', {
-        transports: ['polling'],
-      });
+      const url = `${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`;
+      const socket = io(url, { transports: ['polling'] });
 
       // checking for socket connection
       socket.on('connect', () => {
