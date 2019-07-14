@@ -5,9 +5,6 @@ import Login from './components/Login';
 import Errorpage from './components/ErrorPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-// setting up socket client to connect to our express server runninng
-// in http://loclhost:3001
-
 class App extends Component {
   render() {
     return (

@@ -40,9 +40,9 @@ class Chatroom extends React.Component {
   componentDidMount() {
     let _this = this;
     // get ip address of client
-    request('http://ip-api.com/json', (err, res, body) => {
-      console.log('your ip', JSON.parse(body).query);
-      const clientIP = JSON.parse(body).query;
+    request('https://ipapi.co/json/', (err, res, body) => {
+      console.log('your ip', JSON.parse(body).ip);
+      const clientIP = JSON.parse(body).ip;
 
       // Ensuring we only use HTTP to simulate a browser/proxy server without websocket support
       const socket = io('localhost:3001', {
