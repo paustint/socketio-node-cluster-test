@@ -1,0 +1,14 @@
+{
+  "name": "socketio-node-cluster-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && npm install",
+    "build:client": "cd client && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
