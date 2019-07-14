@@ -11,8 +11,7 @@ const path = require('path');
 const memored = require('memored');
 const circularjson = require('circular-json');
 
-const WEB_CONCURRENCY = 3; // force multiple workers even for small Heroku dynos
-// const WEB_CONCURRENCY = Number.parseInt(process.env.WEB_CONCURRENCY) || 4;
+const WEB_CONCURRENCY = Number.parseInt(process.env.WEB_CONCURRENCY) || 3;
 
 if (cluster.isMaster) {
   console.log('Master started process id', process.pid);
@@ -91,7 +90,7 @@ if (cluster.isMaster) {
 
   // setting redis adapter as message broker and for
   // inter communication of connected sockets
-  const socket_adapter = io.adapter(redis({ host: 'localhost', port: 6379 }));
+  const socket_adapter = io.adapter(redis(process.env.REDIS_URL));
 
   // Add a basic route – index page
   app.use(express.static(path.resolve(__dirname, '../' + 'client/build/')));

@@ -10,7 +10,7 @@ The problem is that all the "sticky session" solutions have all of the workers u
 Summary of the issue:
 
 1. For any heroku app that has at least 1 2x Dyno, two+ workers will be created (this can be simulated by creating two socket)
-   1. Note: code is commented out, and 3 workers will always be created no matter the dyno size
+   1. Override the `WEB_CONCURRENCY` environment variable to `3` to allow workers on any dyno size
 2. Because socket.io uses many http requests for a handshake or long polling transport, the same worker must handle all requests
    1. Note: this library has set the transport to `['polling']` to force the simulation of browsers or networks without websocket support
 
